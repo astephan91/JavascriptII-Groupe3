@@ -68,6 +68,7 @@ rate-limit@1.0.9
 reactive-dict@1.2.0
 reactive-var@1.0.11
 reload@1.2.0
+renaldo:youtube-api@0.0.1
 retry@1.1.0
 routepolicy@1.0.13
 server-render@0.3.0
