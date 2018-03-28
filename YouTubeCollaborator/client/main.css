@@ -7,7 +7,7 @@ body{
   'membres video video'
   'membres recherche recherche'
   'membres playlist playlist';
-  grid-template-rows: 100px 1fr 1fr 1fr;
+  grid-template-rows: 100px 1fr 100px 1fr;
   grid-template-columns: 2fr 1fr 1fr;
   grid-gap:10px;
 }
@@ -35,6 +35,4 @@ body{
 
 #affichagePlaylist{
   grid-area: playlist;
-  text-align: left;
-  display: block;
 }

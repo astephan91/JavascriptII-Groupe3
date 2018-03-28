@@ -6,9 +6,11 @@
 
 {{> search}}
 
-{{#each chansons}}
-  {{> affichagePlaylist}}
-{{/each}}
+<ul id="affichagePlaylist">
+  {{#each chansons}}
+    {{> affichagePlaylist}}
+  {{/each}}
+</ul>
 
 {{> parametres}}
 
