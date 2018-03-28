@@ -14,21 +14,27 @@ body{
 
 #player{
   grid-area: video;
-  display:block;
-  width:100%;
+  display: block;
+  width: 100%;
 }
 
-#Search{
+#search{
   grid-area: recherche;
-  display:block;
-  width:100%;
+  display: block;
+  width: 100%;
 }
 
-#Header{
-  display:inline-flex;
+#header{
+  display: inline-flex;
 }
 
-#Parametres{
+#parametres{
   grid-area: parametres;
   text-align: right;
+}
+
+#affichagePlaylist{
+  grid-area: playlist;
+  text-align: left;
+  display: block;
 }

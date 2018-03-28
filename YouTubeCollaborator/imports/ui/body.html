@@ -1,11 +1,15 @@
 <body>
 
-{{> Header}}
+{{> header}}
 
-{{> YouTube}}
+{{> youTube}}
 
-{{> Search}}
+{{> search}}
 
-{{> Parametres}}
+{{#each chansons}}
+  {{> affichagePlaylist}}
+{{/each}}
+
+{{> parametres}}
 
 </body>
