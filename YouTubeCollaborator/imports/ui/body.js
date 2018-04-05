@@ -19,7 +19,7 @@ if (Meteor.isClient) {
     player = new YT.Player("player", {
       //height: "400",
       //width: "600",
-      videoId: "2bjk26RwjyU",
+      videoId: "fkk1vg0nAfc",
       events: {
         onReady: function (event) {
           event.target.playVideo();
@@ -39,9 +39,11 @@ Template.body.helpers({
 Template.search.events({
   'click #Ajouter' : function(){
     const vidURL = document.getElementById("URL").value;
-
+    //Pour faire tout ce qui est playlist, voir : https://developers.google.com/youtube/iframe_api_reference
     Chansons.insert({
       URL : vidURL
     });
+    const URLs = Chansons.find({},{ fields: { URL: 1, _id: 0 } }).map((chanson) => chanson.URL);
+    console.log(URLs);
   }
 });
