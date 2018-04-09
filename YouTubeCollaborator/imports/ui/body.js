@@ -10,11 +10,24 @@ import './templates/header.html';
 import './templates/youTube.html';
 import './templates/search.html';
 import './templates/parametres.html';
-import './templates/affichagePlaylist.html'
+import './templates/affichagePlaylist.html';
+
+
+//Subscription à la collection de chansons
+constructor() {
+  super();
+
+  this.state = {
+    subscription: {
+      chansons: Meteor.subscribe("chansons")
+    }
+  }
+}
 
 //Lancement de YouTube
 
 if (Meteor.isClient) {
+
   onYouTubeIframeAPIReady = function() {
     player = new YT.Player("player", {
       //height: "400",
