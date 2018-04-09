@@ -14,7 +14,7 @@ import './templates/affichagePlaylist.html';
 
 
 //Subscription à la collection de chansons
-constructor() {
+/*constructor() {
   super();
 
   this.state = {
@@ -22,7 +22,7 @@ constructor() {
       chansons: Meteor.subscribe("chansons")
     }
   }
-}
+}*/
 
 //Lancement de YouTube
 
