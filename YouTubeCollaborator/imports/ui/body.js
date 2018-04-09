@@ -14,15 +14,10 @@ import './templates/affichagePlaylist.html';
 
 
 //Subscription à la collection de chansons
-/*constructor() {
-  super();
 
-  this.state = {
-    subscription: {
-      chansons: Meteor.subscribe("chansons")
-    }
-  }
-}*/
+Template.body.onCreated(function () {
+  this.subscribe("chansons");
+});
 
 //Lancement de YouTube
 
