@@ -16,7 +16,8 @@ import './templates/chanson.html';
 
 Template.body.helpers({
   chansons(){
-    return Chansons.find({})
+    return Chansons.find({}, { sort: { score: -1 } });
+
   }
 });
 
@@ -25,17 +26,18 @@ Template.body.events({
     // Prevent default browser form submit
     event.preventDefault();
  
-    // Get value from form element
+    // Récupération des informations
     const target = event.target;
     const URL = target.URL.value;
  
-    // Insert a task into the collection
+    // Insertion d'une chanson de score nul dans la collection
     Chansons.insert({
       URL,
+      score: 0,
     });
  
-    // Clear form
-    target.text.value = '';
+    // On vide la forme
+    target.URL.value = '';
   },
 });
 
