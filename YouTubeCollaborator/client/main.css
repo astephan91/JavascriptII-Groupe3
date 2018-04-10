@@ -35,4 +35,5 @@ body{
 
 #affichagePlaylist{
   grid-area: playlist;
+  display: inline-block;
 }

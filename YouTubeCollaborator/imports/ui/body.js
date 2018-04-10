@@ -23,7 +23,7 @@ Template.body.helpers({
 
 Template.body.events({
   'submit .nouvelleChanson'(event) {
-    // Prevent default browser form submit
+    // On empêche le comportement par défaut
     event.preventDefault();
  
     // Récupération des informations
@@ -38,6 +38,30 @@ Template.body.events({
  
     // On vide la forme
     target.URL.value = '';
+  },
+});
+
+Template.chanson.events({
+  //Augmentation du score
+  'click .pos'(event) {
+    // On empêche le comportement par défaut
+    event.preventDefault();
+
+    //Et on update le score
+    Chansons.update(this._id, {
+      $set: {"score": this.score +1},
+    });
+  },
+
+  //Diminution du score
+  'click .neg'(event) {
+    //On empêche le comportement par défaut
+    event.preventDefault();
+
+    //Et on update le score
+    Chansons.update(this._id, {
+      $set: {"score": this.score -1},
+    });
   },
 });
 
