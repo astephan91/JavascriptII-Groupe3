@@ -7,7 +7,7 @@ body{
   'membres video video'
   'membres recherche recherche'
   'membres playlist playlist';
-  grid-template-rows: 100px 1fr 100px 2fr;
+  grid-template-rows: 100px 1fr 100px 3fr;
   grid-template-columns: 2fr 1fr 1fr;
   grid-gap:10px;
 }
@@ -18,7 +18,7 @@ body{
   width: 100%;
 }
 
-#search{
+.nouvelleChanson{
   grid-area: recherche;
   display: block;
   width: 100%;

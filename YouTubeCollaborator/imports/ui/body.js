@@ -10,13 +10,33 @@ import './templates/header.html';
 import './templates/youTube.html';
 import './templates/search.html';
 import './templates/parametres.html';
-import './templates/affichagePlaylist.html';
+import './templates/chanson.html';
 
 
-//Subscription à la collection de chansons
 
-Template.body.onCreated(function () {
-  this.subscribe("chansons");
+Template.body.helpers({
+  chansons(){
+    return Chansons.find({})
+  }
+});
+
+Template.body.events({
+  'submit .nouvelleChanson'(event) {
+    // Prevent default browser form submit
+    event.preventDefault();
+ 
+    // Get value from form element
+    const target = event.target;
+    const URL = target.URL.value;
+ 
+    // Insert a task into the collection
+    Chansons.insert({
+      URL,
+    });
+ 
+    // Clear form
+    target.text.value = '';
+  },
 });
 
 //Lancement de YouTube
@@ -37,21 +57,3 @@ if (Meteor.isClient) {
   };
   YT.load();
 };
-
-Template.body.helpers({
-  chansons(){
-    return Chansons.find({})
-  }
-});
-
-Template.search.events({
-  'click #Ajouter' : function(){
-    const vidURL = document.getElementById("URL").value;
-    //Pour faire tout ce qui est playlist, voir : https://developers.google.com/youtube/iframe_api_reference
-    Chansons.insert({
-      URL : vidURL
-    });
-    const URLs = Chansons.find({},{ fields: { URL: 1, _id: 0 } }).map((chanson) => chanson.URL);
-    console.log(URLs);
-  }
-});
