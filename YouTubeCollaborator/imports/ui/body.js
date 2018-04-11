@@ -12,6 +12,9 @@ import './templates/search.html';
 import './templates/parametres.html';
 import './templates/chanson.html';
 
+//Tableau de chansons
+let prochainesChansons = [];
+
 Template.body.helpers({
   chansons(){
     // Classement en fonction du score
@@ -22,7 +25,7 @@ Template.body.helpers({
 });
 
 Template.body.events({
-  'submit .nouvelleChanson'(event) {
+  'submit .ajoutChanson'(event) {
     // On empêche le comportement par défaut
     event.preventDefault();
  
@@ -44,28 +47,24 @@ Template.body.events({
       if(URL.indexOf("&") > -1){
         videoID = URL.split("v=")[1];
         videoID = videoID.split("&")[0];
-        console.log(videoID);
       }
       else {
       //Format de type youtube.com/watch?v=fkk1vg0nAfc
       videoID = URL.split("v=")[1];
-      console.log(videoID)
       }
 
       // https://www.youtube.com/watch?v=fkk1vg0nAfc&t=1691s
     }
 
-    else if (URL.indexOf("youtu.be") > -1) {
+    else if(URL.indexOf("youtu.be") > -1) {
       //Format de type youtu.be/gMHSqGYhHrA?t=870
       if(URL.indexOf("?t=") > -1){
         videoID = URL.split(".be/")[1];
         videoID = videoID.split("?t=")[0];
-        console.log(videoID);
       }
       else {
       //Format de type youtu.be/gMHSqGYhHrA
       videoID = URL.split(".be/")[1];
-      console.log(videoID);
       }
     }
  
@@ -80,6 +79,24 @@ Template.body.events({
     // On vide la forme
     target.URL.value = "";  },
 });
+
+Template.search.events({
+  'click #boutonDebut'(event){
+    //On check la liste des chansons
+    prochainesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
+    //S'il n'y en a pas, il ne se passe rien
+    if (prochainesChansons.length === 0) {
+      alert("Il n'y a aucune chanson dans la playlist!")
+    }
+    //S'il y a des chansons dans la playlist, on lit la 1e et on change son playedStatus
+    else if(prochainesChansons.length > 0){
+      player.loadVideoById(prochainesChansons[0].videoID);
+      Chansons.update(prochainesChansons[0]._id,{ $set:{playedStatus: true}});
+    //Puis on cache le bouton
+      document.getElementById("boutonDebut").style.visibility = "hidden";
+    }
+  }
+})
 
 Template.chanson.events({
   //Augmentation du score
@@ -109,10 +126,9 @@ Template.chanson.events({
 
 if (Meteor.isClient) {
 
-  
   onYouTubeIframeAPIReady = function() {
     player = new YT.Player("player", {
-      videoId: "cJIe5oFPZEw",
+      videoId: "",
       events: {
         //Quand le player est ready
         onReady: onPlayerReady,
@@ -124,18 +140,20 @@ if (Meteor.isClient) {
 
   //Quand le player est ready, on lit la vidéo
   function onPlayerReady(event) {
-    
+   //event.target.playVideo(); 
   }
 
-  //Comportements pour les changements d'état
   function onPlayerStateChange(event) {
-    //Si la vidéo est terminée
+    //Si la vidéo est terminée :
     if (event.data === 0) {
-      //On load la vidéo et on passe son statusPlayed en true
-      let mesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
-      player.loadVideoById(mesChansons[0].videoID);
-      Chansons.update(mesChansons[0]._id,{ $set:{playedStatus: true}});
-      mesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
+      //On charge la liste des prochaines chansons
+      prochainesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
+      //On joue la chanson qui a le meilleur score
+      player.loadVideoById(prochainesChansons[0].videoID);
+      //On passe son statusPlayed en true
+      Chansons.update(prochainesChansons[0]._id,{ $set:{playedStatus: true}});
+      //Et on update la liste des prochaines chansons
+      prochainesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
     }
   }
 

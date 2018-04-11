@@ -18,7 +18,7 @@ body{
   width: 100%;
 }
 
-.nouvelleChanson{
+.commandesPlaylist{
   grid-area: recherche;
   display: block;
   width: 100%;
