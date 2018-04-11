@@ -12,7 +12,7 @@ import './templates/search.html';
 import './templates/parametres.html';
 import './templates/chanson.html';
 
-
+https://youtu.be/DFiis3Y2u80
 
 Template.body.helpers({
   chansons(){
@@ -30,13 +30,44 @@ Template.body.events({
     // Récupération des informations
     const target = event.target;
     const URL = target.URL.value;
+    let videoID = "";
 
     //Vérification de la validité de l'URL
     if(URL.indexOf("youtube.com") == -1 && URL.indexOf("youtu.be") == -1){
       alert("Merci de rentrer une URL YouTube valide");
       return;
     };
-    const videoID = URL.split("v=")[1];
+
+    //Extraction de l'ID de la vidéo en fonction du format de l'URL
+    if(URL.indexOf("youtube.com") > -1) {
+      //Format de type youtube.com/watch?v=fkk1vg0nAfc&t=1691s
+      if(URL.indexOf("&t") > -1){
+        videoID = URL.split("v=")[1];
+        videoID = videoID.split("&t")[0];
+        console.log(videoID);
+      }
+      else {
+      //Format de type youtube.com/watch?v=fkk1vg0nAfc
+      videoID = URL.split("v=")[1];
+      console.log(videoID)
+      }
+
+      // https://www.youtube.com/watch?v=fkk1vg0nAfc&t=1691s
+    }
+
+    else if (URL.indexOf("youtu.be") > -1) {
+      //Format de type youtu.be/gMHSqGYhHrA?t=870
+      if(URL.indexOf("?t=") > -1){
+        videoID = URL.split(".be/")[1];
+        videoID = videoID.split("?t=")[0];
+        console.log(videoID);
+      }
+      else {
+      //Format de type youtu.be/gMHSqGYhHrA
+      videoID = URL.split(".be/")[1];
+      console.log(videoID);
+      }
+    }
  
     // Insertion d'une chanson de score nul dans la collection
     Chansons.insert({
@@ -46,9 +77,7 @@ Template.body.events({
     });
  
     // On vide la forme
-    target.URL.value = "";
-    target.titre.value= "";
-  },
+    target.URL.value = "";  },
 });
 
 Template.chanson.events({
