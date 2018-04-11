@@ -19,8 +19,16 @@ Template.body.helpers({
   chansons(){
     // Classement en fonction du score
     // On ne retourne que les chansons qui n'ont pas été jouées
-    return Chansons.find({playedStatus: false}, {sort: { score: -1 } });
-    
+    return Chansons.find({playedStatus:false},{sort:{score:-1}});
+   /*
+   Si on veut avoir les titres au lieu de l'URL, en principe ça devrait être comme ça mais ça fonctionne pas.
+   return Chansons.find({
+     playedStatus: false
+    },{
+      fields: {"titre":1},
+      sort: { score: -1 }
+    });
+    */
   }
 });
 
