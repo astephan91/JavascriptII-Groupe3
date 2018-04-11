@@ -16,8 +16,9 @@ import './templates/chanson.html';
 
 Template.body.helpers({
   chansons(){
+    // Classement en fonction du score
     return Chansons.find({}, { sort: { score: -1 } });
-
+    
   }
 });
 
@@ -29,15 +30,18 @@ Template.body.events({
     // Récupération des informations
     const target = event.target;
     const URL = target.URL.value;
+    const videoID = URL.split("v=")[1];
  
     // Insertion d'une chanson de score nul dans la collection
     Chansons.insert({
       URL,
+      videoID,
       score: 0,
     });
  
     // On vide la forme
-    target.URL.value = '';
+    target.URL.value = "";
+    target.titre.value= "";
   },
 });
 
@@ -71,8 +75,6 @@ if (Meteor.isClient) {
 
   onYouTubeIframeAPIReady = function() {
     player = new YT.Player("player", {
-      //height: "400",
-      //width: "600",
       videoId: "fkk1vg0nAfc",
       events: {
         onReady: function (event) {
@@ -81,5 +83,6 @@ if (Meteor.isClient) {
       }
     });
   };
+
   YT.load();
 };
