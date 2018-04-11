@@ -12,12 +12,11 @@ import './templates/search.html';
 import './templates/parametres.html';
 import './templates/chanson.html';
 
-https://youtu.be/DFiis3Y2u80
-
 Template.body.helpers({
   chansons(){
     // Classement en fonction du score
-    return Chansons.find({}, { sort: { score: -1 } });
+    // On ne retourne que les chansons qui n'ont pas été jouées
+    return Chansons.find({playedStatus: false}, { sort: { score: -1 } });
     
   }
 });
@@ -39,11 +38,12 @@ Template.body.events({
     };
 
     //Extraction de l'ID de la vidéo en fonction du format de l'URL
+    //TODO : Faire en RegEx
     if(URL.indexOf("youtube.com") > -1) {
       //Format de type youtube.com/watch?v=fkk1vg0nAfc&t=1691s
-      if(URL.indexOf("&t") > -1){
+      if(URL.indexOf("&") > -1){
         videoID = URL.split("v=")[1];
-        videoID = videoID.split("&t")[0];
+        videoID = videoID.split("&")[0];
         console.log(videoID);
       }
       else {
@@ -74,6 +74,7 @@ Template.body.events({
       URL,
       videoID,
       score: 0,
+      playedStatus: false,
     });
  
     // On vide la forme
@@ -108,16 +109,37 @@ Template.chanson.events({
 
 if (Meteor.isClient) {
 
+  
   onYouTubeIframeAPIReady = function() {
     player = new YT.Player("player", {
-      videoId: "fkk1vg0nAfc",
+      videoId: "cJIe5oFPZEw",
       events: {
-        onReady: function (event) {
-          event.target.playVideo();
-        }
+        //Quand le player est ready
+        onReady: onPlayerReady,
+        //Quand le player change d'état
+        onStateChange: onPlayerStateChange
       }
     });
   };
+
+  //Quand le player est ready, on lit la vidéo
+  function onPlayerReady(event) {
+    event.target.playVideo()
+  }
+
+  //Comportements pour les changements d'état
+  function onPlayerStateChange(event) {
+    //Si la vidéo est terminée
+    if (event.data === 0) {
+      //On passe playedStatus en true
+      let mesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
+      Chansons.update(mesChansons[0]._id,{ $set:{playedStatus: true}});
+      //Et on load la prochaine vidéo
+      mesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
+      player.loadVideoById(mesChansons[0].videoID);
+      
+    }
+  }
 
   YT.load();
 };
