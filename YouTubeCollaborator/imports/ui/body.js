@@ -19,7 +19,7 @@ Template.body.helpers({
   chansons(){
     // Classement en fonction du score
     // On ne retourne que les chansons qui n'ont pas été jouées
-    return Chansons.find({playedStatus: false}, { sort: { score: -1 } });
+    return Chansons.find({playedStatus: false}, {sort: { score: -1 } });
     
   }
 });
@@ -32,6 +32,7 @@ Template.body.events({
     // Récupération des informations
     const target = event.target;
     const URL = target.URL.value;
+    const titre = target.titre.value;
     let videoID = "";
 
     //Vérification de la validité de l'URL
@@ -72,6 +73,7 @@ Template.body.events({
     Chansons.insert({
       URL,
       videoID,
+      titre,
       score: 0,
       playedStatus: false,
     });
