@@ -14,6 +14,40 @@ import './templates/chanson.html';
 
 //Tableau de chansons
 let prochainesChansons = [];
+let httpRequest;
+let titreVideo;
+
+
+//DEBUT DE LA TENTATIVE D'UTILISER L'API YOUTUBE
+
+function makeRequest(string) {
+  //console.log("Au début de makeRequest : "+titreVideo);
+  httpRequest = new XMLHttpRequest();
+
+  if (!httpRequest) {
+    alert('Giving up :( Cannot create an XMLHTTP instance');
+    return false;
+  }
+  httpRequest.onreadystatechange = alertContents;
+  httpRequest.open('GET', 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+string+'&key=AIzaSyB-jC9ewqrBt2w_tFRzemk36bhY_04RZtU');
+  httpRequest.send();
+  //console.log("A la fin de makeRequest : "+titreVideo);
+}
+
+function alertContents() {
+  if (httpRequest.readyState === XMLHttpRequest.DONE) {
+    if (httpRequest.status === 200) {
+      let tab = httpRequest.responseText;
+      let obj = JSON.parse(tab);
+      titreVideo = obj.items[0].snippet.title;
+      //console.log("Pendant alertContents : "+titreVideo);
+    } else {
+      alert('There was a problem with the request.');
+    }
+  }
+};
+
+//FIN DE LA TENTATIVE
 
 Template.body.helpers({
   chansons(){
@@ -35,7 +69,6 @@ Template.body.events({
     // Récupération des informations
     const target = event.target;
     const URL = target.URL.value;
-    const titre = target.titre.value;
     let videoID = "";
 
     //Vérification de la validité de l'URL
@@ -76,19 +109,21 @@ Template.body.events({
       alert("Cette URL n'est pas valide !");
       return;
     }
+    makeRequest(videoID);
 
     // Insertion d'une chanson de score nul dans la collection
-    Chansons.insert({
+    // Pour régler les problèmes de faille spatio-temporelle, lag artificiel de 100ms
+    setTimeout(function(){
+      Chansons.insert({
       URL,
       videoID,
-      titre,
+      titreVideo,
       score: 0,
       playedStatus: false,
-    });
+    });},200)
  
     // On vide la forme
-    target.URL.value = "";
-    target.titre.value= "";},
+    target.URL.value = "";},
 });
 
 Template.search.events({
