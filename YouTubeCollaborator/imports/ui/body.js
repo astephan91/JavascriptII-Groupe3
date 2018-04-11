@@ -11,6 +11,7 @@ import './templates/youTube.html';
 import './templates/search.html';
 import './templates/parametres.html';
 import './templates/chanson.html';
+import './templates/spreadsheet.html';
 
 
 
