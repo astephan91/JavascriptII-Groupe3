@@ -124,20 +124,18 @@ if (Meteor.isClient) {
 
   //Quand le player est ready, on lit la vidéo
   function onPlayerReady(event) {
-    event.target.playVideo()
+    
   }
 
   //Comportements pour les changements d'état
   function onPlayerStateChange(event) {
     //Si la vidéo est terminée
     if (event.data === 0) {
-      //On passe playedStatus en true
+      //On load la vidéo et on passe son statusPlayed en true
       let mesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
-      Chansons.update(mesChansons[0]._id,{ $set:{playedStatus: true}});
-      //Et on load la prochaine vidéo
-      mesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
       player.loadVideoById(mesChansons[0].videoID);
-      
+      Chansons.update(mesChansons[0]._id,{ $set:{playedStatus: true}});
+      mesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
     }
   }
 
