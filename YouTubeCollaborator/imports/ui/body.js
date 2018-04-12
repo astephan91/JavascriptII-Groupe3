@@ -15,6 +15,7 @@ import './templates/chanson.html';
 //Variables utiles
 let prochainesChansons = [];
 let mesChansons;
+let compteur = 0;
 let doublon = false;
 let httpRequest;
 let titreVideo;
@@ -157,6 +158,19 @@ Template.search.events({
       Chansons.update(prochainesChansons[0]._id,{ $set:{playedStatus: true}});
     //Puis on cache le bouton
       document.getElementById("boutonDebut").style.visibility = "hidden";
+    }
+  }
+})
+
+//Blocage de l'ajout de nouvelles chansons
+Template.parametres.events({
+  'click .switch'(event){
+    if(compteur%2===0){
+      document.getElementById("formulaireChanson").style.visibility = "hidden";
+      compteur++;}
+    else if (compteur%2!=0){
+      document.getElementById("formulaireChanson").style.visibility = "visible";
+      compteur++;
     }
   }
 })
