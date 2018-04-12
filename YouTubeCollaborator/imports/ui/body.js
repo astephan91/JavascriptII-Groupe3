@@ -106,12 +106,18 @@ Template.body.events({
       videoID = URL.split(".be/")[1];
       }
     }
-
+  
     if(videoID == undefined){
       alert("Cette vidéo n'existe pas !");
       return;
     }
     makeRequest(videoID);
+
+    //Si la requête n'as pas trouvé de titre, la vidéo n'existe pas
+    if(titreVideo==undefined){
+      alert("Cette vidéo n'existe pas !");
+      return;
+    }
 
     mesChansons = Chansons.find(
       {},
