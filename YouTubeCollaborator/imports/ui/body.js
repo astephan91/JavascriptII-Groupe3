@@ -108,7 +108,7 @@ Template.body.events({
     }
 
     if(videoID == undefined){
-      alert("Cette URL n'est pas valide !");
+      alert("Cette vidéo n'existe pas !");
       return;
     }
     makeRequest(videoID);
