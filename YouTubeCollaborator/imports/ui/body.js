@@ -12,20 +12,23 @@ import './templates/search.html';
 import './templates/parametres.html';
 import './templates/chanson.html';
 
-//Tableau de chansons
+//Variables utiles
 let prochainesChansons = [];
+let mesChansons;
+let doublon = false;
 let httpRequest;
 let titreVideo;
 
 
-//DEBUT DE LA TENTATIVE D'UTILISER L'API YOUTUBE
 
+
+//Envoi de la requête à l'API YouTube
 function makeRequest(string) {
   //console.log("Au début de makeRequest : "+titreVideo);
   httpRequest = new XMLHttpRequest();
 
   if (!httpRequest) {
-    alert('Giving up :( Cannot create an XMLHTTP instance');
+    alert("Impossible de créer une instance XMLHttp");
     return false;
   }
   httpRequest.onreadystatechange = alertContents;
@@ -42,12 +45,11 @@ function alertContents() {
       titreVideo = obj.items[0].snippet.title;
       //console.log("Pendant alertContents : "+titreVideo);
     } else {
-      alert('There was a problem with the request.');
+      alert("La requête a rencontré un problème");
     }
   }
 };
-
-//FIN DE LA TENTATIVE
+//Fin de la requête
 
 Template.body.helpers({
   chansons(){
@@ -78,7 +80,6 @@ Template.body.events({
     };
 
     //Extraction de l'ID de la vidéo en fonction du format de l'URL
-    //TODO : Faire en RegEx
     if(URL.indexOf("youtube.com") > -1) {
       //Format de type youtube.com/watch?v=fkk1vg0nAfc&t=1691s
       if(URL.indexOf("&") > -1){
@@ -111,6 +112,22 @@ Template.body.events({
     }
     makeRequest(videoID);
 
+    mesChansons = Chansons.find(
+      {},
+      {fields:{
+        "videoID" :1,
+        _id:0
+      }
+    }).fetch();
+   
+    //On vérifie que la chanson sélectionée n'existe pas déjà dans la base de données
+    for(let i = 0; i < mesChansons.length; i++){
+      if(mesChansons[i].videoID === videoID) {
+        alert("On risquerait de s'en lasser !");
+        return;
+      }
+    };
+
     // Insertion d'une chanson de score nul dans la collection
     // Pour régler les problèmes de faille spatio-temporelle, lag artificiel de 100ms
     setTimeout(function(){
@@ -120,7 +137,7 @@ Template.body.events({
       titreVideo,
       score: 0,
       playedStatus: false,
-    });},200)
+    });},100)
  
     // On vide la forme
     target.URL.value = "";},
