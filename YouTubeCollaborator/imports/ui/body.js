@@ -113,11 +113,6 @@ Template.body.events({
     }
     makeRequest(videoID);
 
-    //Si la requête n'as pas trouvé de titre, la vidéo n'existe pas
-    if(titreVideo==undefined){
-      alert("Cette vidéo n'existe pas !");
-      return;
-    }
 
     mesChansons = Chansons.find(
       {},
@@ -135,9 +130,18 @@ Template.body.events({
       }
     };
 
-    // Insertion d'une chanson de score nul dans la collection
     // Pour régler les problèmes de faille spatio-temporelle, lag artificiel de 100ms
     setTimeout(function(){
+
+      //On vérifie que la requête a renvoyé un truc, si c'est pas le cas on ajoute
+      //rien à la collection
+      if(!titreVideo){
+        alert("Cette vidéo n'existe pas !");
+        return;
+      }
+
+      //Comme l'URL, le videoID, et le titre de la vidéo sont conformes, on ajoute une vidéo
+      //de score 0 à la collection
       Chansons.insert({
       URL,
       videoID,
@@ -184,7 +188,7 @@ Template.parametres.events({
 Template.chanson.events({
   //Augmentation du score
   'click .pos'(event) {
-    // On empêche le comportement par défaut
+    //On empêche le comportement par défaut
     event.preventDefault();
 
     //Et on update le score
@@ -221,9 +225,9 @@ if (Meteor.isClient) {
     });
   };
 
-  //Quand le player est ready, on lit la vidéo
+  //Quand le player est ready, on prévient le user
   function onPlayerReady(event) {
-   //event.target.playVideo(); 
+   alert("Vous pouvez dès maintenant ajouter des vidéos à la playlist");
   }
 
   function onPlayerStateChange(event) {
