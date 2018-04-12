@@ -22,10 +22,10 @@ accounts-ui@1.3.0
 accounts-password@1.5.0
 adrianliaw:youtube-iframe-api
 twbs:bootstrap
-renaldo:youtube-api
 msavin:mongol
 alanning:roles
 kadira:flow-router
 autopublish
 useraccounts:unstyled
 accounts-base
+renaldo:youtube-api
