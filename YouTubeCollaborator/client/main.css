@@ -4,9 +4,9 @@ body{
   display: grid;
   grid-template-areas:
   'menu menu parametres'
-  'membres video video'
-  'membres recherche recherche'
-  'membres playlist playlist';
+  'recap video video'
+  'recap recherche recherche'
+  'recap playlist playlist';
   grid-template-rows: 200px 1fr 100px 3fr;
   grid-template-columns: 2fr 1fr 2fr;
   grid-gap:10px;
@@ -35,5 +35,10 @@ body{
 
 #affichagePlaylist{
   grid-area: playlist;
+  display: inline-block;
+}
+
+#chansonsFinies{
+  grid-area:recap;
   display: inline-block;
 }

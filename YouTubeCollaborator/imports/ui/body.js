@@ -11,6 +11,7 @@ import './templates/youTube.html';
 import './templates/search.html';
 import './templates/parametres.html';
 import './templates/chanson.html';
+import './templates/recap.html';
 
 //Variables utiles
 let prochainesChansons = [];
@@ -53,7 +54,7 @@ function alertContents() {
 //Fin de la requête
 
 Template.body.helpers({
-  chansons(){
+  chansonsFutures(){
     // Classement en fonction du score
     // On ne retourne que les chansons qui n'ont pas été jouées
     return Chansons.find({
@@ -61,6 +62,13 @@ Template.body.helpers({
     },{
       sort : { score:-1 }
     });
+  },
+
+  chansonsFinies(){
+    // On montre les chansons déjà jouées pendant la soirée
+    return Chansons.find({
+      "playedStatus":true
+    },{});
   }
 });
 
@@ -97,9 +105,9 @@ Template.body.events({
 
     else if(URL.indexOf("youtu.be") > -1) {
       //Format de type youtu.be/gMHSqGYhHrA?t=870
-      if(URL.indexOf("?t=") > -1){
+      if(URL.indexOf("?") > -1){
         videoID = URL.split(".be/")[1];
-        videoID = videoID.split("?t=")[0];
+        videoID = videoID.split("?")[0];
       }
       else {
       //Format de type youtu.be/gMHSqGYhHrA
@@ -130,7 +138,7 @@ Template.body.events({
       }
     };
 
-    // Pour régler les problèmes de faille spatio-temporelle, lag artificiel de 100ms
+    // Pour régler les problèmes de faille spatio-temporelle, lag artificiel de 200ms
     setTimeout(function(){
 
       //On vérifie que la requête a renvoyé un truc, si c'est pas le cas on ajoute
@@ -148,7 +156,7 @@ Template.body.events({
       titreVideo,
       score: 0,
       playedStatus: false,
-    });},100)
+    });},200)
  
     // On vide la forme
     target.URL.value = "";},

@@ -12,10 +12,17 @@
 {{> search}}
  
 <ol id="affichagePlaylist">
-  {{#each chansons}}
+  {{#each chansonsFutures}}
     {{> chanson}}
   {{/each}}
 </ol>
+
+<ul id="chansonsFinies">
+  <h3>Chansons déjà passées</h3>
+  {{#each chansonsFinies}}
+    {{> chanson}}
+  {{/each}}
+</ul>
 
 {{> parametres}}
 
