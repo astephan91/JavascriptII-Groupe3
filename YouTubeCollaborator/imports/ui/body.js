@@ -26,7 +26,6 @@ let titreVideo;
 
 //Envoi de la requête à l'API YouTube
 function makeRequest(string) {
-  //console.log("Au début de makeRequest : "+titreVideo);
   httpRequest = new XMLHttpRequest();
 
   if (!httpRequest) {
@@ -36,7 +35,6 @@ function makeRequest(string) {
   httpRequest.onreadystatechange = alertContents;
   httpRequest.open('GET', 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id='+string+'&key=AIzaSyB-jC9ewqrBt2w_tFRzemk36bhY_04RZtU');
   httpRequest.send();
-  //console.log("A la fin de makeRequest : "+titreVideo);
 }
 
 function alertContents() {
@@ -45,7 +43,6 @@ function alertContents() {
       let tab = httpRequest.responseText;
       let obj = JSON.parse(tab);
       titreVideo = obj.items[0].snippet.title;
-      //console.log("Pendant alertContents : "+titreVideo);
     } else {
       alert("La requête a rencontré un problème");
     }
