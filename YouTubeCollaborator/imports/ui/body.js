@@ -73,6 +73,13 @@ Template.body.helpers({
 });
 
 Template.body.events({
+
+  'change #ordre'(event){
+    //On empêche le comportement par défaut
+    event.preventDefault();
+    console.log(document.getElementById("ordre").value);
+  },
+
   'submit .ajoutChanson'(event) {
     // On empêche le comportement par défaut
     event.preventDefault();
@@ -156,7 +163,10 @@ Template.body.events({
       titreVideo,
       score: 0,
       playedStatus: false,
-    });},200)
+      addedAt: new Date(),
+    });
+
+  },200)
  
     // On vide la forme
     target.URL.value = "";},

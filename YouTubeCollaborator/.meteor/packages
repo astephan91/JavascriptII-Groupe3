@@ -25,7 +25,7 @@ twbs:bootstrap
 msavin:mongol
 alanning:roles
 kadira:flow-router
-autopublish
 useraccounts:unstyled
 accounts-base
 renaldo:youtube-api
+autopublish
