@@ -50,14 +50,28 @@ function alertContents() {
 };
 //Fin de la requête
 
+
+Template.body.onCreated(function() {
+  this.sortBy = new ReactiveVar('score');
+})
+
 Template.body.helpers({
-  chansonsFutures(){
+  /*chansonsFutures(){
     // Classement en fonction du score
     // On ne retourne que les chansons qui n'ont pas été jouées
     return Chansons.find({
       "playedStatus":false
     },{
       sort : { score:-1 }
+    });
+  },*/
+
+  chansonsFutures : function(){
+    var sortParam = Template.instance().sortBy.get();
+    return Chansons.find({
+      "playedStatus":false
+    },{
+      sort : { sortParam:-1 }
     });
   },
 
@@ -71,10 +85,9 @@ Template.body.helpers({
 
 Template.body.events({
 
-  'change #ordre'(event){
-    //On empêche le comportement par défaut
-    event.preventDefault();
-    console.log(document.getElementById("ordre").value);
+  'change #ordre':function (event,templateInstance) {
+    var sortSelected = document.getElementById("ordre").value;
+    templateInstance.sortBy.set(sortSelected)
   },
 
   'submit .ajoutChanson'(event) {
