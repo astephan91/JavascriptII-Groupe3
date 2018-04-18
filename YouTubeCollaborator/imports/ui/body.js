@@ -12,12 +12,8 @@ import './templates/search.html';
 import './templates/parametres.html';
 import './templates/chanson.html';
 import './templates/recap.html';
-<<<<<<< HEAD
 import './templates/LoginModal.html';
 import './templates/spreadsheet.html';
-=======
-import './templates/LoginModal.html'
->>>>>>> 155c0a46eab9fb6d033a663dbaa2a48c1ae41504
 
 //Variables utiles
 let prochainesChansons = [];
