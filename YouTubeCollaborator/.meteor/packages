@@ -24,6 +24,7 @@ twbs:bootstrap
 msavin:mongol
 alanning:roles
 kadira:flow-router
+kadira:blaze-layout
 useraccounts:unstyled
 accounts-base
 renaldo:youtube-api
