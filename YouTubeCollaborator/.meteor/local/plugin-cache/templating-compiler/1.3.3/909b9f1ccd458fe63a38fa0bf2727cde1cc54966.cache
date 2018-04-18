@@ -1,0 +1,1 @@
+{"head":"","body":"","js":"\nTemplate.__checkName(\"search\");\nTemplate[\"search\"] = new Template(\"Template.search\", (function() {\n  var view = this;\n  return HTML.Raw('<form class=\"nouvelleChanson\">\\n  <input type=\"text\" name=\"URL\" placeholder=\"Adresse YouTube\">\\n</form>');\n}));\n","bodyAttrs":{}}

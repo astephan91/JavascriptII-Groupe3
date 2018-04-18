@@ -1,0 +1,1 @@
+{"head":"","body":"","js":"\nTemplate.__checkName(\"youTube\");\nTemplate[\"youTube\"] = new Template(\"Template.youTube\", (function() {\n  var view = this;\n  return HTML.Raw('<div id=\"player\"></div>');\n}));\n","bodyAttrs":{}}

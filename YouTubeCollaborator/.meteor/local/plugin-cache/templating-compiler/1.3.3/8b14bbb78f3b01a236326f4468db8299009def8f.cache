@@ -1,0 +1,1 @@
+{"head":"","body":"","js":"\nTemplate.__checkName(\"fullPageAtForm\");\nTemplate[\"fullPageAtForm\"] = new Template(\"Template.fullPageAtForm\", (function() {\n  var view = this;\n  return Spacebars.include(view.lookupTemplate(\"atForm\"));\n}));\n","bodyAttrs":{}}

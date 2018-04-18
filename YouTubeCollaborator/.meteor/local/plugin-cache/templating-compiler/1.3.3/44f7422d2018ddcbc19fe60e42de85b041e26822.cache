@@ -1,0 +1,1 @@
+{"head":"","body":"","js":"\nTemplate.__checkName(\"atNavButton\");\nTemplate[\"atNavButton\"] = new Template(\"Template.atNavButton\", (function() {\n  var view = this;\n  return HTML.A({\n    id: \"at-nav-button\"\n  }, Blaze.View(\"lookup:text\", function() {\n    return Spacebars.mustache(view.lookup(\"text\"));\n  }));\n}));\n","bodyAttrs":{}}
