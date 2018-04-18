@@ -5,18 +5,27 @@
     src="https://gdata.youtube.com/feeds/api/videos/videoid?v=2&alt=json-in-script&format=5&callback=getTitle">
     </script>
 
-{{> header}}
+    {{> header}}
 
-{{> youTube}}
+    {{> youTube}}
+    {{> LoginModal}}
 
-{{> search}}
- 
-<ul id="affichagePlaylist">
-  {{#each chansons}}
-    {{> chanson}}
-  {{/each}}
-</ul>
+    {{> search}}
+    
+    <ol id="affichagePlaylist">
+      {{#each chansonsFutures}}
+        {{> chanson}}
+      {{/each}}
+    </ol>
 
-{{> parametres}}
+    <ul id="chansonsFinies">
+      <h3>Chansons déjà passées</h3>
+      {{#each chansonsFinies}}
+        {{> recap}}
+      {{/each}}
+    </ul>
+
+    {{> parametres}}
+    {{> TemplateOri}}
 
 </body>
