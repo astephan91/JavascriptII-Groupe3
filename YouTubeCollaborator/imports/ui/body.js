@@ -14,6 +14,8 @@ import './templates/chanson.html';
 import './templates/recap.html';
 import './templates/LoginModal.html';
 import './templates/spreadsheet.html';
+import './templates/Layout.html';
+import './templates/trueHeader.html';
 
 //Variables utiles
 let prochainesChansons = [];

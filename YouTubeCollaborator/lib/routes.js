@@ -1,7 +1,7 @@
 FlowRouter.route('/', {
     name:'home',
     action: function(){
-        BlazeLayout.render('header', {main: 'LoginModal'});
+        BlazeLayout.render('Layout', {top: "trueHeader", main: 'LoginModal'});
     }
 });
 
