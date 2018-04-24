@@ -13,9 +13,10 @@ import './templates/parametres.html';
 import './templates/chanson.html';
 import './templates/recap.html';
 import './templates/LoginModal.html';
-import './templates/spreadsheet.html';
+import './templates/TemplateOri.html';
 import './templates/Layout.html';
 import './templates/trueHeader.html';
+import './templates/roomtemplate.html';
 
 //Variables utiles
 let prochainesChansons = [];
