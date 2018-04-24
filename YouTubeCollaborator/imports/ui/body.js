@@ -1,7 +1,8 @@
 //Importation des méthodes
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
-import { Chansons } from '../api/chansons.js'
+import { Chansons } from '../api/chansons.js';
+import { ReactiveVar } from 'meteor/reactive-var';
 
 //Importation de body
 import './body.html';
