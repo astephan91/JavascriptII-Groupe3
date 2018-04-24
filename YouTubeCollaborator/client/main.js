@@ -1,2 +1,2 @@
-//import '../lib/routes/router.js';
+import '../lib/routes.js';
 import '../imports/ui/body.js';
