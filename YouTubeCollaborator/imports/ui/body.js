@@ -45,6 +45,7 @@ function alertContents() {
     if (httpRequest.status === 200) {
       let tab = httpRequest.responseText;
       let obj = JSON.parse(tab);
+      console.log(obj);
       titreVideo = obj.items[0].snippet.title;
     } else {
       alert("La requête a rencontré un problème");
@@ -59,24 +60,15 @@ Template.body.onCreated(function() {
 })
 
 Template.body.helpers({
-  chansonsFutures(){
-    // Classement en fonction du score
-    // On ne retourne que les chansons qui n'ont pas été jouées
-    return Chansons.find({
-      "playedStatus":false
-    },{
-      sort : { score:-1 }
-    });
-  },
 
-  /*chansonsFutures : function(){
+  chansonsFutures(){
     var sortParam = Template.instance().sortBy.get();
     return Chansons.find({
       "playedStatus":false
     },{
-      sort : { sortParam:-1 }
-    });
-  },*/
+      sort : { [sortParam] : -1 }
+    }); 
+  },
 
   chansonsFinies(){
     // On montre les chansons déjà jouées pendant la soirée
