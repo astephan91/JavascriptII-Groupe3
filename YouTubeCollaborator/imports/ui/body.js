@@ -59,7 +59,7 @@ Template.body.onCreated(function() {
 })
 
 Template.body.helpers({
-  /*chansonsFutures(){
+  chansonsFutures(){
     // Classement en fonction du score
     // On ne retourne que les chansons qui n'ont pas été jouées
     return Chansons.find({
@@ -67,16 +67,16 @@ Template.body.helpers({
     },{
       sort : { score:-1 }
     });
-  },*/
+  },
 
-  chansonsFutures : function(){
+  /*chansonsFutures : function(){
     var sortParam = Template.instance().sortBy.get();
     return Chansons.find({
       "playedStatus":false
     },{
       sort : { sortParam:-1 }
     });
-  },
+  },*/
 
   chansonsFinies(){
     // On montre les chansons déjà jouées pendant la soirée
