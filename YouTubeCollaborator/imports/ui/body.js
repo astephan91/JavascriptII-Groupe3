@@ -15,8 +15,13 @@ import './templates/recap.html';
 import './templates/LoginModal.html';
 import './templates/TemplateOri.html';
 import './templates/Layout.html';
-import './templates/trueHeader.html';
+import './templates/headerHome.html';
 import './templates/roomtemplate.html';
+import './templates/abouttemplate.html';
+import './templates/hometemplate.html';
+import './templates/headerLogin.html';
+import './templates/headerAbout.html';
+
 
 //Variables utiles
 let prochainesChansons = [];
