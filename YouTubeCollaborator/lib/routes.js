@@ -29,7 +29,7 @@ FlowRouter.route('/main', {
 FlowRouter.route('/room', {
     name:'room',
     action: function(){
-        BlazeLayout.render('Layout', {top: "trueHeader", main: 'roomtemplate'});
+        BlazeLayout.render('Layout', {top: "headerHome", main: 'roomtemplate'});
     }
 });
 

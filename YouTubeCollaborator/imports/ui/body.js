@@ -61,11 +61,11 @@ function alertContents() {
 //Fin de la requête
 
 
-Template.body.onCreated(function() {
+Template.roomtemplate.onCreated(function() {
   this.sortBy = new ReactiveVar('score');
 })
 
-Template.body.helpers({
+Template.roomtemplate.helpers({
   /*chansonsFutures(){
     // Classement en fonction du score
     // On ne retourne que les chansons qui n'ont pas été jouées
@@ -93,7 +93,7 @@ Template.body.helpers({
   }
 });
 
-Template.body.events({
+Template.roomtemplate.events({
 
   'change #ordre':function (event,templateInstance) {
     var sortSelected = document.getElementById("ordre").value;
