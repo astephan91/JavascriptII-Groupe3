@@ -289,4 +289,6 @@ Template.headerLogin.events({
   'click .logout': ()=> {
     Meteor.logout();
   }
+
+  
 });

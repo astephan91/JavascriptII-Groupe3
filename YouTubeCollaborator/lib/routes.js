@@ -5,15 +5,17 @@ FlowRouter.route('/', {
     }
 });
 
+
+
 FlowRouter.route('/login', {
-    name:'home',
+    name:'login',
     action: function(){
         BlazeLayout.render('Layout', {top: "headerLogin", main: 'LoginModal'});
     }
 });
 
 FlowRouter.route('/about', {
-    name:'home',
+    name:'about',
     action: function(){
         BlazeLayout.render('Layout', {top: "headerAbout", main: 'abouttemplate'});
     }
@@ -39,3 +41,5 @@ FlowRouter.route( '/test', {
     },
     name: 'test' // Optional route name.
   });
+
+  
