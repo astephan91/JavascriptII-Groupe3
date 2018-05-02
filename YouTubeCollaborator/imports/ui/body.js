@@ -14,7 +14,15 @@ import './templates/parametres.html';
 import './templates/chanson.html';
 import './templates/recap.html';
 import './templates/LoginModal.html';
-import './templates/spreadsheet.html';
+import './templates/TemplateOri.html';
+import './templates/Layout.html';
+import './templates/headerHome.html';
+import './templates/roomtemplate.html';
+import './templates/abouttemplate.html';
+import './templates/hometemplate.html';
+import './templates/headerLogin.html';
+import './templates/headerAbout.html';
+
 
 //Variables utiles
 let prochainesChansons = [];
@@ -55,11 +63,20 @@ function alertContents() {
 //Fin de la requête
 
 
-Template.body.onCreated(function() {
+Template.roomtemplate.onCreated(function() {
   this.sortBy = new ReactiveVar('score');
 })
 
-Template.body.helpers({
+Template.roomtemplate.helpers({
+  /*chansonsFutures(){
+    // Classement en fonction du score
+    // On ne retourne que les chansons qui n'ont pas été jouées
+    return Chansons.find({
+      "playedStatus":false
+    },{
+      sort : { score:-1 }
+    });
+  },*/
 
   chansonsFutures(){
     var sortParam = Template.instance().sortBy.get();
@@ -78,7 +95,7 @@ Template.body.helpers({
   }
 });
 
-Template.body.events({
+Template.roomtemplate.events({
 
   'change #ordre':function (event,templateInstance) {
     var sortSelected = document.getElementById("ordre").value;
@@ -269,3 +286,11 @@ if (Meteor.isClient) {
 
   YT.load();
 };
+
+Template.headerLogin.events({
+  'click .logout': ()=> {
+    Meteor.logout();
+  }
+
+  
+});

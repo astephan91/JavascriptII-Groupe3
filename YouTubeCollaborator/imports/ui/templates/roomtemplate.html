@@ -1,0 +1,27 @@
+<template name="roomtemplate">
+        <script
+        type="text/javascript" 
+        src="https://gdata.youtube.com/feeds/api/videos/videoid?v=2&alt=json-in-script&format=5&callback=getTitle">
+        </script>
+    
+        {{> header}}
+    
+        {{> youTube}}
+    
+        {{> search}}
+        
+        <ol id="affichagePlaylist">
+          {{#each chansonsFutures}}
+            {{> chanson}}
+          {{/each}}
+        </ol>
+    
+        <ul id="chansonsFinies">
+          <h3>Chansons déjà passées</h3>
+          {{#each chansonsFinies}}
+            {{> recap}}
+          {{/each}}
+        </ul>
+    
+        {{> parametres}}
+</template>
