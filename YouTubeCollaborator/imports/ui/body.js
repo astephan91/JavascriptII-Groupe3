@@ -284,3 +284,9 @@ if (Meteor.isClient) {
 
   YT.load();
 };
+
+Template.headerLogin.events({
+  'click .logout': ()=> {
+    Meteor.logout();
+  }
+});
