@@ -10,6 +10,9 @@ FlowRouter.route('/', {
 FlowRouter.route('/login', {
     name:'login',
     action: function(){
+        if(Meteor.userId()) {
+            FlowRouter.go('main');
+        }
         BlazeLayout.render('Layout', {top: "headerLogin", main: 'LoginModal'});
     }
 });
