@@ -49,3 +49,9 @@
 {
     padding-top: 0;
 }
+
+.card-img-top {
+  
+  height: 15vw;
+  object-fit: cover;
+}
