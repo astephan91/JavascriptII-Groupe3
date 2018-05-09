@@ -75,3 +75,10 @@ FlowRouter.route( '/test', {
         BlazeLayout.render('Layout', {top: "headerLogin", main: 'LoginModal'});
     }
 });
+
+FlowRouter.route('/search', {
+    name:'search',
+    action: function(){
+        BlazeLayout.render('Layout', {top: "headerLogin", main: 'searchtemplate'});
+    }
+});

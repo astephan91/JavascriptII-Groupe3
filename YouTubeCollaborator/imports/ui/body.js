@@ -16,6 +16,7 @@ import './templates/recap.html';
 import './templates/LoginModal.html';
 import './templates/login2.html';
 import './templates/TemplateOri.html';
+import './templates/searchtemplate.html';
 import './templates/Layout.html';
 import './templates/headerHome.html';
 import './templates/roomtemplate.html';
