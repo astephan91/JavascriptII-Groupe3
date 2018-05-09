@@ -1,3 +1,13 @@
+ if (Meteor.isClient){}
+ Accounts.onLogin(function() {
+        FlowRouter.go('main');
+    });
+
+    Accounts.onLogout(function() {
+        FlowRouter.go('logout');
+    });
+}
+
 FlowRouter.triggers.enter([function(context, redirect){
     if(!Meteor.userId()){
         FlowRouter.go('login2');
