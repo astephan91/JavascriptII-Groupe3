@@ -1,4 +1,4 @@
- if (Meteor.isClient){}
+ if (Meteor.isClient) {
  Accounts.onLogin(function() {
         FlowRouter.go('main');
     });
