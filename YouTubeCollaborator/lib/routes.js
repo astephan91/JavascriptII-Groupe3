@@ -1,6 +1,15 @@
+FlowRouter.triggers.enter([function(context, redirect){
+    if(!Meteor.userId()){
+        FlowRouter.go('login2');
+}
+}]);
+
 FlowRouter.route('/', {
     name:'home',
     action: function(){
+        if(Meteor.userId()) {
+            FlowRouter.go('main');
+        }
         BlazeLayout.render('Layout', {top: "headerHome", main: 'hometemplate'});
     }
 });
@@ -10,10 +19,14 @@ FlowRouter.route('/', {
 FlowRouter.route('/login', {
     name:'login',
     action: function(){
-        if(Meteor.userId()) {
-            FlowRouter.go('main');
-        }
         BlazeLayout.render('Layout', {top: "headerLogin", main: 'LoginModal'});
+    }
+});
+
+FlowRouter.route('/login2', {
+    name:'login2',
+    action: function(){
+        BlazeLayout.render('Layout', {top: "headerLogin", main: 'login2'});
     }
 });
 
