@@ -59,3 +59,9 @@ FlowRouter.route( '/test', {
   });
 
   
+  FlowRouter.route('/parametre', {
+    name:'parametre',
+    action: function(){
+        BlazeLayout.render('Layout', {top: "headerLogin", main: 'LoginModal'});
+    }
+});
