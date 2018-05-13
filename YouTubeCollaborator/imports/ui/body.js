@@ -23,6 +23,7 @@ import './templates/roomtemplate.html';
 import './templates/abouttemplate.html';
 import './templates/hometemplate.html';
 import './templates/notfoundtemplate.html';
+import './templates/qrcodetemplate.html';
 import './templates/headerLogin.html';
 import './templates/headerAbout.html';
 
@@ -301,6 +302,6 @@ Template.headerLogin.events({
 
 Template.notfoundtemplate.helpers({
   helperTEXT: function(){
-    return 'this is a test';
+    return 'Ceci est un test';
   }
 });
