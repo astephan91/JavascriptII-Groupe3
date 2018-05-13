@@ -298,3 +298,9 @@ Template.headerLogin.events({
 
   
 });
+
+Template.notfoundtemplate.helpers({
+  helperTEXT: function(){
+    return 'this is a test';
+  }
+});
