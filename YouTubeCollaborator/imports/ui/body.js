@@ -22,6 +22,7 @@ import './templates/headerHome.html';
 import './templates/roomtemplate.html';
 import './templates/abouttemplate.html';
 import './templates/hometemplate.html';
+import './templates/notfoundtemplate.html';
 import './templates/headerLogin.html';
 import './templates/headerAbout.html';
 

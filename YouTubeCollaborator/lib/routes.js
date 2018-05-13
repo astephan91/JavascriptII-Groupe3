@@ -82,3 +82,10 @@ FlowRouter.route('/search', {
         BlazeLayout.render('Layout', {top: "headerLogin", main: 'searchtemplate'});
     }
 });
+
+FlowRouter.notfound = {
+    action() {
+        BlazeLayout.render('Layout', {top: "headerLogin", main: 'notfoundtemplate'});
+        
+    }
+};
