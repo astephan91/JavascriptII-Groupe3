@@ -1,8 +1,10 @@
 <template name="notfoundtemplate">
     <div class="text-center">
         <h1>404 not found</h1>
+
+        {{> QRCode text=helperTEXT size="128px"}}
     </div>
 
-    {{> qrcodetemplate}}
-    {{> QRCode text=helperTEXT size="128px"}}
+    
+    
 </template>
