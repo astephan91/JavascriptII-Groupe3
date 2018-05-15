@@ -45,11 +45,13 @@
 }
 */
 
+/* navbar fix taille */
 .navbar-brand 
 {
     padding-top: 0;
 }
 
+/* corrige la taille de l'image des card */
 .card-img-top {
   
   height: 15vw;

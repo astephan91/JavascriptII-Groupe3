@@ -1,4 +1,5 @@
- if (Meteor.isClient) {
+ //redirection vers main after login et redirection vers logout
+  if (Meteor.isClient) {
  Accounts.onLogin(function() {
         FlowRouter.go('main');
     });
@@ -8,6 +9,7 @@
     });
 }
 
+//avertissement not logged in
 FlowRouter.triggers.enter([function(context, redirect){
     if(!Meteor.userId()){
         FlowRouter.go('login2');
@@ -83,6 +85,8 @@ FlowRouter.route('/search', {
     }
 });
 
+
+//route lorsque l'user choisit une URL invalide
 FlowRouter.notfound = {
     action() {
         BlazeLayout.render('Layout', {top: "headerLogin", main: 'notfoundtemplate'});

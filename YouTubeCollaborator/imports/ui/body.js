@@ -300,6 +300,8 @@ Template.headerLogin.events({
   
 });
 
+
+//helper pour QRcode
 Template.notfoundtemplate.helpers({
   helperTEXT: function(){
     return 'Ceci est un test';
