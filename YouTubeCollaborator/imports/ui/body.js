@@ -307,3 +307,20 @@ Template.notfoundtemplate.helpers({
     return 'Ceci est un test';
   }
 });
+
+SallesList = new Mongo.Collection('salles');
+
+Template.TemplateOri.events({
+  'submit .new-salle' (event) {
+    event.preventDefault();
+
+    let target = event.target;
+    let text = target.text.value;
+
+    SallesList.insert({
+      text,
+    });
+
+    target.text.value= '';
+  },
+});
