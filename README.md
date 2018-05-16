@@ -1,5 +1,5 @@
 # Youtube Collaborator - README
-Projet du cours de Javascript II 
+Projet du cours de Javascript II - Meteor.js, Université de Lausanne Printemps 2018
 
 ## Description
 Ce site est destiné à celles et ceux qui souhaitent partager leurs découvertes et coups de coeur musicaux. 
@@ -14,6 +14,5 @@ d'abord, et les moins appréciés à la fin.
 
 
 ## Contributeurs
-
 Arnaud Stephan, Fábio Cabral, Oriane Van Uchelen, Noémie Carette
 
