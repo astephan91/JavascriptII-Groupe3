@@ -1,4 +1,14 @@
 import { Mongo } from 'meteor/mongo';
 
-const SallesList = new Mongo.Collection('salleslist');
-export default SallesList;
+
+export const SallesList = new Mongo.Collection('salleslist');
+
+
+//const SallesList = new Mongo.Collection('salleslist');
+
+SallesList.allow({
+    insert: function(userId, doc) {
+      // only allow posting if you are logged in
+      return !! userId;
+    }
+  });

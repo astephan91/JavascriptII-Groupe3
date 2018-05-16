@@ -2,6 +2,7 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
 import { Chansons } from '../api/chansons.js';
+import { SallesList } from '../api/salles.js';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 //Importation de body
@@ -307,4 +308,18 @@ Template.notfoundtemplate.helpers({
     return 'Ceci est un test';
   }
 });
+
+Template.TemplateOri.events({
+  'submit form': function(event){
+    event.preventDefault()
+    const target = event.target;
+    const name = target.text.value;
+    console.log(name)
+
+    SallesList.insert({
+      name
+    })
+   // FlowRouter.go("/room")
+  }
+})
 
