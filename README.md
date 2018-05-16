@@ -10,22 +10,8 @@ d'abord, et les moins appréciés à la fin.
 
 ## Interface
 
-## Packages principaux
-accounts-password@1.5.0 
-adrianliaw:youtube-iframe-api
-twbs:bootstrap
-msavin:mongol
-alanning:roles
-kadira:flow-router
-kadira:blaze-layout
-useraccounts:unstyled
-accounts-base
-renaldo:youtube-api
-autopublish
-aldeed:template-extension
-alexwine:bootstrap-4
-gwendall:auth-client-callbacks
-jayuda:flx-qrcode
+## Packages principaux 
+
 
 ## Contributeurs
 
