@@ -11,7 +11,7 @@ d'abord, et les moins appréciés à la fin.
 ## Interface
 
 ## Packages principaux
-accounts-password@1.5.0
+accounts-password@1.5.0 
 adrianliaw:youtube-iframe-api
 twbs:bootstrap
 msavin:mongol
