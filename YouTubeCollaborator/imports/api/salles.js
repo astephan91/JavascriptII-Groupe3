@@ -12,3 +12,6 @@ SallesList.allow({
       return !! userId;
     }
   });
+
+  SallesList.friendlySlugs('name');
+  
