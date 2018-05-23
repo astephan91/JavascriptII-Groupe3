@@ -333,7 +333,3 @@ Template.TemplateOri.events({
     FlowRouter.go(pathDef, params);
   }
 })
-
-
-
-
