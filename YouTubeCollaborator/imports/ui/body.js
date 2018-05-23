@@ -74,19 +74,6 @@ Template.roomtemplate.onCreated(function() {
 })
 
 Template.roomtemplate.helpers({
-<<<<<<< HEAD
-  /*chansonsFutures(){
-    // Classement en fonction du score
-    // On ne retourne que les chansons qui n'ont pas été jouées
-    return Chansons.find({
-      "playedStatus":false,
-
-    },{
-      sort : { score:-1 }
-    });
-  },*/
-=======
->>>>>>> 293593ab4476b4cd74495f8546657a1888227495
 
   chansonsFutures(){
     sortParam = Template.instance().sortBy.get();
