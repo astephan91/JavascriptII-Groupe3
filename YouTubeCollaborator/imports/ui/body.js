@@ -331,7 +331,10 @@ Template.TemplateOri.events({
     SallesList.insert({
       name
     })
-   // FlowRouter.go("/room")
+    let slug = FlowRouter.getParam("slug");
+    let pathDef = "/room/:slug";
+    let params  = {slug:slug};
+    FlowRouter.go(pathDef, params);
   }
 })
 
