@@ -59,7 +59,6 @@ function alertContents() {
     if (httpRequest.status === 200) {
       let tab = httpRequest.responseText;
       let obj = JSON.parse(tab);
-      console.log(obj);
       titreVideo = obj.items[0].snippet.title;
     } else {
       alert("La requête a rencontré un problème");
@@ -192,9 +191,22 @@ Template.roomtemplate.events({
       score: 0,
       playedStatus: false,
       addedAt: new Date(),
-    });
+    })
 
   },200)
+
+
+  if(Meteor.is_server) {
+
+    People.allow({
+      'insert': function (userId,doc) {
+        /* user and doc checks ,
+        return true to allow insert */
+        return true; 
+      }
+    });
+  
+  }
  
     // On vide la forme
     target.URL.value = "";},
