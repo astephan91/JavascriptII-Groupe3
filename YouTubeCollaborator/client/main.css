@@ -58,3 +58,15 @@
   object-fit: cover;
 }
 
+.navbar-custom{
+  background-color: #AEDEE8;
+}
+
+.navbar-custom2{
+  color: #000000;
+}
+
+.btn-custom{
+  background: #41848F;
+}
+

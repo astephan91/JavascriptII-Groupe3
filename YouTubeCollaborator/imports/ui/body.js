@@ -333,7 +333,7 @@ Template.TemplateOri.events({
     })
     let slug = FlowRouter.getParam("slug");
     let pathDef = "/room/:slug";
-    let params  = {slug:slug};
+    let params  = {slug:name, slug:id};
     FlowRouter.go(pathDef, params);
   }
 })
