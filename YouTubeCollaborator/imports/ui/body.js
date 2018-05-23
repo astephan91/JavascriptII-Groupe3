@@ -284,13 +284,13 @@ if (Meteor.isClient) {
     //Si la vidéo est terminée :
     if (event.data === 0) {
       //On charge la liste des prochaines chansons
-      prochainesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
+      prochainesChansons = Chansons.find({playedStatus: false}, { sort: { [sortParam]: -1 } }).fetch();
       //On joue la chanson qui a le meilleur score
       player.loadVideoById(prochainesChansons[0].videoID);
       //On passe son statusPlayed en true
       Chansons.update(prochainesChansons[0]._id,{ $set:{playedStatus: true}});
       //Et on update la liste des prochaines chansons
-      prochainesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
+      prochainesChansons = Chansons.find({playedStatus: false}, { sort: { [sortParam]: -1 } }).fetch();
     }
   }
 
