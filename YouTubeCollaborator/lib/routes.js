@@ -63,7 +63,7 @@ FlowRouter.route('/room', {
     }
 });
 
-FlowRouter.route('/room/:slug', {
+FlowRouter.route('/room/:name/:id', {
     name:'room',
     action: function(){
         BlazeLayout.render('Layout', {top: "headerHome", main: 'roomtemplate'});

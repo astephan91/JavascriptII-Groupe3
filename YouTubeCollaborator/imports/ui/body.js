@@ -77,7 +77,8 @@ Template.roomtemplate.helpers({
     // Classement en fonction du score
     // On ne retourne que les chansons qui n'ont pas été jouées
     return Chansons.find({
-      "playedStatus":false
+      "playedStatus":false,
+
     },{
       sort : { score:-1 }
     });
@@ -321,6 +322,9 @@ Template.notfoundtemplate.helpers({
   }
 });
 
+
+
+
 Template.TemplateOri.events({
   'submit form': function(event){
     event.preventDefault()
@@ -328,12 +332,13 @@ Template.TemplateOri.events({
     const name = target.text.value;
     console.log(name)
 
-    SallesList.insert({
+    var id = SallesList.insert({
       name
     })
-    let slug = FlowRouter.getParam("slug");
-    let pathDef = "/room/:slug";
-    let params  = {slug:name, slug:id};
+    console.log(id)
+    let dbname = FlowRouter.getParam("slug");
+    let pathDef = "/room/:dbname/:id";
+    let params  = {dbname:name, id:id };
     FlowRouter.go(pathDef, params);
   }
 })

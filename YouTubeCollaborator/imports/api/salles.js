@@ -14,9 +14,4 @@ SallesList.allow({
   });
 
   SallesList.friendlySlugs('name');
-  SallesList.friendlySlugs([
-    {
-      slugFrom: ['name', '_id'],
-      slugField: 'slug',
-    }
-  ]);
+  
