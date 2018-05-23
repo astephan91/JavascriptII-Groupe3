@@ -14,4 +14,4 @@ SallesList.allow({
   });
 
   SallesList.friendlySlugs('name');
-  
+ 
