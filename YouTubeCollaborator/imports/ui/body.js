@@ -37,6 +37,7 @@ let compteur = 0;
 let doublon = false;
 let httpRequest;
 let titreVideo;
+let sortParam;
 
 
 
@@ -73,6 +74,7 @@ Template.roomtemplate.onCreated(function() {
 })
 
 Template.roomtemplate.helpers({
+<<<<<<< HEAD
   /*chansonsFutures(){
     // Classement en fonction du score
     // On ne retourne que les chansons qui n'ont pas été jouées
@@ -83,9 +85,11 @@ Template.roomtemplate.helpers({
       sort : { score:-1 }
     });
   },*/
+=======
+>>>>>>> 293593ab4476b4cd74495f8546657a1888227495
 
   chansonsFutures(){
-    var sortParam = Template.instance().sortBy.get();
+    sortParam = Template.instance().sortBy.get();
     return Chansons.find({
       "playedStatus":false
     },{
@@ -293,13 +297,13 @@ if (Meteor.isClient) {
     //Si la vidéo est terminée :
     if (event.data === 0) {
       //On charge la liste des prochaines chansons
-      prochainesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
+      prochainesChansons = Chansons.find({playedStatus: false}, { sort: { [sortParam]: -1 } }).fetch();
       //On joue la chanson qui a le meilleur score
       player.loadVideoById(prochainesChansons[0].videoID);
       //On passe son statusPlayed en true
       Chansons.update(prochainesChansons[0]._id,{ $set:{playedStatus: true}});
       //Et on update la liste des prochaines chansons
-      prochainesChansons = Chansons.find({playedStatus: false}, { sort: { score: -1 } }).fetch();
+      prochainesChansons = Chansons.find({playedStatus: false}, { sort: { [sortParam]: -1 } }).fetch();
     }
   }
 
