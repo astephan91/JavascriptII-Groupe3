@@ -37,6 +37,7 @@ let compteur = 0;
 let doublon = false;
 let httpRequest;
 let titreVideo;
+let sortParam;
 
 
 
@@ -73,18 +74,9 @@ Template.roomtemplate.onCreated(function() {
 })
 
 Template.roomtemplate.helpers({
-  /*chansonsFutures(){
-    // Classement en fonction du score
-    // On ne retourne que les chansons qui n'ont pas été jouées
-    return Chansons.find({
-      "playedStatus":false
-    },{
-      sort : { score:-1 }
-    });
-  },*/
 
   chansonsFutures(){
-    var sortParam = Template.instance().sortBy.get();
+    sortParam = Template.instance().sortBy.get();
     return Chansons.find({
       "playedStatus":false
     },{
