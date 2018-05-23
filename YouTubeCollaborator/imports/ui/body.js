@@ -323,13 +323,20 @@ Template.TemplateOri.events({
     const name = target.text.value;
     console.log(name)
 
-    var id = SallesList.insert({
+    let id = SallesList.insert({
       name
     })
-    console.log(id)
+    console.log(name)
     let dbname = FlowRouter.getParam("slug");
     let pathDef = "/room/:dbname/:id";
     let params  = {dbname:name, id:id };
     FlowRouter.go(pathDef, params);
   }
 })
+
+Template.header.helpers({
+  sallenom : function(){
+    
+    return SallesList.name;
+  }
+});
