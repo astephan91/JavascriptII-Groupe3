@@ -262,7 +262,6 @@ Template.chanson.events({
 //Lancement de YouTube
 
 if (Meteor.isClient) {
-
   onYouTubeIframeAPIReady = function() {
     player = new YT.Player("player", {
       videoId: "",
@@ -277,7 +276,7 @@ if (Meteor.isClient) {
 
   //Quand le player est ready, on prévient le user
   function onPlayerReady(event) {
-   alert("Vous pouvez dès maintenant ajouter des vidéos à la playlist");
+   console.log("Le player est ready");
   }
 
   function onPlayerStateChange(event) {
