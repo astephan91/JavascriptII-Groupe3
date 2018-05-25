@@ -76,18 +76,22 @@ Template.roomtemplate.onCreated(function() {
 Template.roomtemplate.helpers({
 
   chansonsFutures(){
+    let idsalle = FlowRouter.getParam("id");
     sortParam = Template.instance().sortBy.get();
     return Chansons.find({
-      "playedStatus":false
+      "playedStatus":false,
+      "fksalle": idsalle,
     },{
       sort : { [sortParam] : -1 }
     }); 
   },
 
   chansonsFinies(){
+    let idsalle = FlowRouter.getParam("id");
     // On montre les chansons déjà jouées pendant la soirée
     return Chansons.find({
-      "playedStatus":true
+      "playedStatus":true,
+      "fksalle": idsalle
     },{});
   }
 });
@@ -152,13 +156,15 @@ Template.roomtemplate.events({
       {},
       {fields:{
         "videoID" :1,
+        "fksalle" :1,
         _id:0
       }
     }).fetch();
-   
+    
+    let idsalle = FlowRouter.getParam("id")
     //On vérifie que la chanson sélectionée n'existe pas déjà dans la base de données
     for(let i = 0; i < mesChansons.length; i++){
-      if(mesChansons[i].videoID === videoID) {
+      if(mesChansons[i].videoID === videoID && mesChansons[i].fksalle === idsalle) {
         alert("On risquerait de s'en lasser !");
         return;
       }
@@ -173,7 +179,10 @@ Template.roomtemplate.events({
         alert("Cette vidéo n'existe pas !");
         return;
       }
-
+      
+      //Recupération de l'id de la salle
+      let idsalle = FlowRouter.getParam("id");
+    
       //Comme l'URL, le videoID, et le titre de la vidéo sont conformes, on ajoute une vidéo
       //de score 0 à la collection
       Chansons.insert({
@@ -183,6 +192,7 @@ Template.roomtemplate.events({
       score: 0,
       playedStatus: false,
       addedAt: new Date(),
+      fksalle: idsalle,
     })
 
   },200)
@@ -330,12 +340,17 @@ Template.TemplateOri.events({
     let pathDef = "/room/:dbname/:id";
     let params  = {dbname:name, id:id };
     FlowRouter.go(pathDef, params);
+    document.location.reload(true);
   }
 })
 
 Template.header.helpers({
   sallenom : function(){
-    
-    return SallesList.name;
+    let idsalle = FlowRouter.getParam("id");
+    return SallesList.findOne(
+      {
+        _id:idsalle
+      }
+    );
   }
 });
