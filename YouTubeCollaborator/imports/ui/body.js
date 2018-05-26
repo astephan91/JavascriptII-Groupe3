@@ -307,6 +307,7 @@ if (Meteor.isClient) {
   YT.load();
 };
 
+//logout
 Template.headerLogin.events({
   'click .logout': ()=> {
     Meteor.logout();
@@ -316,16 +317,20 @@ Template.headerLogin.events({
 });
 
 
-//helper pour QRcode
-Template.notfoundtemplate.helpers({
-  helperTEXT: function(){
-    return 'Ceci est un test';
-  }
+//récupere l'URL (le but était de l'intégrer dans un QRCode)
+Template.roomtemplate.events({
+  'click button': function(){
+    let currentURL = FlowRouter.current();
+    console.log(currentURL);
+  },
 });
 
 
 
 
+
+
+//Insertion dans la collection des salles et creation de l'URL unique
 Template.TemplateOri.events({
   'submit form': function(event){
     event.preventDefault()
@@ -345,6 +350,7 @@ Template.TemplateOri.events({
   }
 })
 
+//Affichage du nom de la salle dans la salle
 Template.header.helpers({
   sallenom : function(){
     let idsalle = FlowRouter.getParam("id");
@@ -355,4 +361,3 @@ Template.header.helpers({
     );
   }
 });
-
