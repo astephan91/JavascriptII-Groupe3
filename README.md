@@ -13,7 +13,7 @@ d'abord, et les moins appréciés à la fin.
 ## Fonctionnement
 
 ## Dépendances 
-twbs:bootstrap (style)
+twbs:bootstrap (style) <br>
 kadira:blaze-layout (rendering templates)
 kadira:flow-router (routing)
 msavin:mongol (devtool)
