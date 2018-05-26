@@ -1,7 +1,7 @@
 # Youtube Collaborator - README
-Projet du cours de Javascript II - Meteor.js, Université de Lausanne Printemps 2018<br>
+Projet du cours de Javascript II - Meteor.js, Faculté des Lettres, Université de Lausanne Printemps 2018<br>
 Enseignant: Isaac Pante<br>
-Assistant: Loris Rimaz<br>
+Tuteur: Loris Rimaz<br>
 
 ## Description
 Ce site est destiné à celles et ceux qui souhaitent partager leurs découvertes et coups de coeur musicaux. 
