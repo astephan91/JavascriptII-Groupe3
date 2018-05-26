@@ -1,5 +1,5 @@
 # Youtube Collaborator - README
-Projet du cours de Javascript II - Meteor.js, Faculté des Lettres, Université de Lausanne Printemps 2018<br>
+Projet du cours de Javascript II - Meteor.js, Faculté des Lettres, Université de Lausanne, Printemps 2018<br>
 Enseignant: Isaac Pante<br>
 Tuteur: Loris Rimaz<br>
 
@@ -36,6 +36,5 @@ todda00:friendly-slugs (slugs)<br>
 hitchcott:qr-scanner (scanner qrcode)<br>
 
 
-## Contexte de développement
-
-Ce projet a été développé par Arnaud Stephan, Fábio Cabral, Oriane Van Uchelen et Noémie Carette, dans le cadre du cours "Programmation pour Internet - Javascript II". Le cours a été donné par Isaac Pante, professeur, et Loris Rimaz, assistant. Il s'agit d'un cours de la section des Sciences et du langage de l'information, et de la faculté des Lettres.
+## Contributeurs
+Arnaud Stephan, Fábio Cabral, Oriane Van Uchelen et Noémie Carette
