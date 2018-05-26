@@ -11,6 +11,17 @@ entre amis, le site jouera les musiques ajoutées suivant un système de vote qu
 d'abord, et les moins appréciés à la fin.
 
 ## Fonctionnement
+L'utilisateur crée un compte, se connecte et il est ensuite redirectionné vers la page principale, où il a le choix de créer une salle ou en rejoindre une autre déjà existante.<br>
+### Créer une salle
+Une fois dans la salle l'utilisateur peut commencer à ajouter des musiques, ainsi qu'inviter d'autres utilisateurs à travers le QRCode. Les utilisateurs connectés peuvent voter afin de déplacer les chansons vers le haut et vers le bas, lorsque le classement se fait par "Vote". Le mode "Dernier ajout" élimine cette fonction. Le bouton "Bloquer l'ajout" permet d'arrêter temporairement l'ajout de chansons.
+### Rejoindre une salle
+En plus de rejoindre une salle simplement en tapant l'URL, les utilisateurs peuvent se servir de cette section afin de scanner le QRCode d'une salle déjà en cours.
+
+#### Note
+Par manque de temps, certaines fonctions ne sont pas encore disponibles/fonctionelles.<br>
+Le QRCode ne peut pas être généré (appuier sur le bouton QRCode récupére cependant l'URL de la salle)<br>
+Le scanner de QRCode n'est pas encore fonctionnel à 100%<br>
+
 
 ## Dépendances 
 twbs:bootstrap (style) <br>
@@ -23,8 +34,8 @@ renaldo:youtube-api (youtube)<br>
 jayuda:flx-qrcode (qrcode)<br>
 gwendall:auth-client-callbacks (onLogin callbacks)<br>
 todda00:friendly-slugs (slugs)<br>
+hitchcott:qr-scanner (scanner qrcode)<br>
 
 
 ## Contributeurs
 Arnaud Stephan, Fábio Cabral, Oriane Van Uchelen, Noémie Carette
-
