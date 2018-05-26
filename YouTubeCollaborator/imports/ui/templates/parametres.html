@@ -1,11 +1,12 @@
 <template name="parametres">
-  <div id="parametres">
-  <h2>Bloquer l'ajout <input type="checkbox" class="switch"></h2>
-  <h3>Classement :
+  <div class="form-check" id="parametres">
+      <label class="form-check-label" for="defaultCheck1">Bloquer l'ajout</label> 
+      <input type="checkbox" class="switch form-check-input position-static" id="defaultCheck1">
+  
+    <label class="form-check-label">Classement:</label>
     <select id="ordre">
       <option value="score">Vote</option>
       <option value="addedAt">Dernier ajout</option>
     </select>
-  </h3>
 </div>
 </template>
