@@ -1,5 +1,7 @@
 # Youtube Collaborator - README
 Projet du cours de Javascript II - Meteor.js, Université de Lausanne Printemps 2018
+Enseignant: Isaac Pante
+Assistant: Loris Rimaz
 
 ## Description
 Ce site est destiné à celles et ceux qui souhaitent partager leurs découvertes et coups de coeur musicaux. 
@@ -8,9 +10,19 @@ musiques préférées afin de les partager avec le groupe de la playlist. Idéal
 entre amis, le site jouera les musiques ajoutées suivant un système de vote qui permet de faire passer les musiques populaires
 d'abord, et les moins appréciés à la fin.
 
-## Interface
+## Fonctionnement
 
-## Packages principaux 
+## Dépendances 
+twbs:bootstrap (style)
+kadira:blaze-layout (rendering templates)
+kadira:flow-router (routing)
+msavin:mongol (devtool)
+alanning:roles (roles)
+adrianliaw:youtube-iframe-api (youtube)
+renaldo:youtube-api (youtube)
+jayuda:flx-qrcode (qrcode)
+gwendall:auth-client-callbacks (onLogin callbacks)
+todda00:friendly-slugs (slugs)
 
 
 ## Contributeurs
