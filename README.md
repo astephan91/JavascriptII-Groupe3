@@ -1,7 +1,7 @@
 # Youtube Collaborator - README
-Projet du cours de Javascript II - Meteor.js, Université de Lausanne Printemps 2018
-Enseignant: Isaac Pante
-Assistant: Loris Rimaz
+Projet du cours de Javascript II - Meteor.js, Université de Lausanne Printemps 2018<br>
+Enseignant: Isaac Pante<br>
+Assistant: Loris Rimaz<br>
 
 ## Description
 Ce site est destiné à celles et ceux qui souhaitent partager leurs découvertes et coups de coeur musicaux. 
@@ -14,15 +14,15 @@ d'abord, et les moins appréciés à la fin.
 
 ## Dépendances 
 twbs:bootstrap (style) <br>
-kadira:blaze-layout (rendering templates)
-kadira:flow-router (routing)
-msavin:mongol (devtool)
-alanning:roles (roles)
-adrianliaw:youtube-iframe-api (youtube)
-renaldo:youtube-api (youtube)
-jayuda:flx-qrcode (qrcode)
-gwendall:auth-client-callbacks (onLogin callbacks)
-todda00:friendly-slugs (slugs)
+kadira:blaze-layout (rendering templates)<br>
+kadira:flow-router (routing)<br>
+msavin:mongol (devtool)<br>
+alanning:roles (roles)<br>
+adrianliaw:youtube-iframe-api (youtube)<br>
+renaldo:youtube-api (youtube)<br>
+jayuda:flx-qrcode (qrcode)<br>
+gwendall:auth-client-callbacks (onLogin callbacks)<br>
+todda00:friendly-slugs (slugs)<br>
 
 
 ## Contributeurs
