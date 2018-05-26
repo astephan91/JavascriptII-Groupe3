@@ -63,10 +63,13 @@
 }*/
 
 .navbar-custom2{
-  color: #000000;
+  color: #d4d4d4;
 }
 
 .btn-custom{
-  background: #41848F;
+  background: #ca0000;
 }
 
+html body {
+  background-color: #bebebe;
+}
