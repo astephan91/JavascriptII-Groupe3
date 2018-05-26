@@ -27,6 +27,7 @@ import './templates/notfoundtemplate.html';
 import './templates/qrcodetemplate.html';
 import './templates/headerLogin.html';
 import './templates/headerAbout.html';
+import './templates/modalQR.html';
 
 
 
@@ -354,3 +355,4 @@ Template.header.helpers({
     );
   }
 });
+

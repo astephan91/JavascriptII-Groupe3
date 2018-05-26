@@ -66,10 +66,14 @@
   color: #d4d4d4;
 }
 
+.txt-custom{
+  color: #2e2e30;
+}
 .btn-custom{
   background: #ca0000;
 }
 
 html body {
-  background-color: #bebebe;
+  background-color: #d7d4cf;
 }
+
