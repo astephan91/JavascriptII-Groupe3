@@ -1,50 +1,5 @@
 /* CSS declarations go here */
 
-/* body{
-  padding:30px;
-  display: grid;
-  grid-template-areas:
-  'menu menu parametres'
-  'recap video video'
-  'recap recherche recherche'
-  'recap playlist playlist';
-  grid-template-rows: 200px 1fr 100px 3fr;
-  grid-template-columns: 2fr 1fr 2fr;
-  grid-gap:10px;
-}
-
-#player{
-  grid-area: video;
-  display: block;
-  width: 100%;
-}
-
-.commandesPlaylist{
-  grid-area: recherche;
-  display: block;
-  width: 100%;
-}
-
-#header{
-  display: inline-flex;
-}
-
-#parametres{
-  grid-area: parametres;
-  text-align: right;
-}
-
-#affichagePlaylist{
-  grid-area: playlist;
-  display: inline-block;
-}
-
-#chansonsFinies{
-  grid-area:recap;
-  display: inline-block;
-}
-*/
-
 /* navbar fix taille */
 .navbar-brand 
 {
