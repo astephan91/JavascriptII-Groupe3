@@ -336,7 +336,11 @@ Template.TemplateOri.events({
     event.preventDefault()
     const target = event.target;
     const name = target.text.value;
-    console.log(name)
+    
+    if(name===""){
+      alert("Merci de rentrer un nom!");
+      return;
+    }
 
     let id = SallesList.insert({
       name
